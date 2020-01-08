@@ -1,0 +1,7 @@
+---
+.travis.yml:
+   secure: "later"
+   docker_sets:
+      - set: centos8-64
+      - set: debian10-64
+      - set: ubuntu1804-64
