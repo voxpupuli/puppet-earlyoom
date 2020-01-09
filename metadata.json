@@ -1,0 +1,53 @@
+{
+  "project_page": "http://github.com/voxpupuli/puppet-earlyoom",
+  "license": "Apache-2.0",
+  "source": "https://github.com/voxpupuli/puppet-earlyoom",
+  "issues": "https://github.com/voxpupuli/puppet-earlyoom/issues",
+  "description": "Install and configure earlyoom",
+  "version": "1.0.0-rc0",
+  "summary": "Installs and configure earlyoom",
+  "name": "puppet-earlyoom",
+  "author": "Vox Pupuli",
+  "tags": [
+    "earlyoom",
+    "oom"
+  ],
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_requirement": ">= 4.13.1 < 7.0.0"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 5.5.8 < 7.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "10"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "18.04"
+      ]
+    }
+  ]
+}

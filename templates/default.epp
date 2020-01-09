@@ -1,0 +1,9 @@
+<%-|
+  String $options,
+|-%>
+# Settings for earlyoom service.
+# Installed with puppet
+
+EARLYOOM_ARGS="<%= $options %>"
+
+
