@@ -55,4 +55,4 @@ Steve Traylen, steve.traylen@cern.ch, CERN, 2020.
 Steve Traylen steve.traylen@cern.ch
 
 ## Support
-Please log tickets and issues at http://github.ch/voxpupuli/puppet-earlyoom
+Please log tickets and issues at https://github.com/voxpupuli/puppet-earlyoom/issues
