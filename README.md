@@ -18,7 +18,7 @@ times a second (less often if there is a lot of free memory).
 By default if both are below 10%, it will kill the largest process (highest oom\_score).
 The percentage value is configurable via command line arguments.
 
-<https://github.com/rfjakob/earlyoom>
+[github.com/rfjakob/earlyoom](https://github.com/rfjakob/earlyoom)
 
 ## Examples
 
@@ -61,4 +61,4 @@ Steve Traylen steve.traylen@cern.ch
 
 ## Support
 
-Please log tickets and issues at <https://github.com/voxpupuli/puppet-earlyoom/issues>
+Please log tickets and issues at our [Projects site](https://github.com/voxpupuli/puppet-earlyoom/issues)
