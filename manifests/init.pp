@@ -95,7 +95,6 @@ class earlyoom (
   Optional[Variant[Integer[0],Array[Integer[0],2,2]]]         $memory_size    = undef,
   Optional[Variant[Integer[0],Array[Integer[0],2,2]]]         $swap_size      = undef,
 ) {
-
   contain 'earlyoom::install'
   contain 'earlyoom::config'
   contain 'earlyoom::service'
@@ -103,5 +102,4 @@ class earlyoom (
   Class['earlyoom::install']
   -> Class['earlyoom::config']
   ~> Class['earlyoom::service']
-
 }

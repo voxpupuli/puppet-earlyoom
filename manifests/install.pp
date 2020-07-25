@@ -5,11 +5,9 @@
 class earlyoom::install (
   $pkgname        = $earlyoom::pkgname,
 ) {
-
   assert_private()
 
-  package{$pkgname:
+  package { $pkgname:
     ensure => 'present',
   }
-
 }
