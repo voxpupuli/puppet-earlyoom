@@ -1,13 +1,25 @@
 # Changelog
 
-## [v1.0.0](https://github.com/voxpupuli/puppet-earlyoom/tree/v1.0.0) (2020-01-09)
+All notable changes to this project will be documented in this file.
+Each new release typically also includes the latest modulesync defaults.
+These should not affect the functionality of the module.
 
-[Full Changelog](https://github.com/voxpupuli/puppet-earlyoom/compare/b18f537426b16e330664c306438b2eb89e75dcd5...v1.0.0)
+## [v1.1.0](https://github.com/voxpupuli/puppet-earlyoom/tree/v1.1.0) (2020-09-14)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-earlyoom/compare/v1.0.0...v1.1.0)
+
+**Implemented enhancements:**
+
+- New parameter dryrun to specify dryrun mode [\#7](https://github.com/voxpupuli/puppet-earlyoom/pull/7) ([traylenator](https://github.com/traylenator))
 
 **Merged pull requests:**
 
-- modulesync 2.10.1 [\#2](https://github.com/voxpupuli/puppet-earlyoom/pull/2) ([dhoppe](https://github.com/dhoppe))
-- Initial version of puppet-earlyoom [\#1](https://github.com/voxpupuli/puppet-earlyoom/pull/1) ([traylenator](https://github.com/traylenator))
+- modulesync 3.0.0, lint-fixes and use voxpupuli-testing gem [\#8](https://github.com/voxpupuli/puppet-earlyoom/pull/8) ([traylenator](https://github.com/traylenator))
+- Fix several markdown lint issues [\#5](https://github.com/voxpupuli/puppet-earlyoom/pull/5) ([dhoppe](https://github.com/dhoppe))
+
+## [v1.0.0](https://github.com/voxpupuli/puppet-earlyoom/tree/v1.0.0) (2020-01-09)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-earlyoom/compare/b18f537426b16e330664c306438b2eb89e75dcd5...v1.0.0)
 
 
 

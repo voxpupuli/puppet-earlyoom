@@ -4,7 +4,7 @@
   "source": "https://github.com/voxpupuli/puppet-earlyoom",
   "issues": "https://github.com/voxpupuli/puppet-earlyoom/issues",
   "description": "Install and configure earlyoom",
-  "version": "1.0.1-rc0",
+  "version": "1.1.0",
   "summary": "Installs and configure earlyoom",
   "name": "puppet-earlyoom",
   "author": "Vox Pupuli",
