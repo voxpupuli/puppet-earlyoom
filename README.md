@@ -39,7 +39,8 @@ class{'earlyoom':
   memory_percent  => 20,
   swap_percent    => [10,4]
   memory_size     => 20000,
-  swap_size       => [30000,60000]
+  swap_size       => [30000,60000],
+  dryrun          => false,
 }
 ```
 

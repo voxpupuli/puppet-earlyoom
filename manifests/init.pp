@@ -18,7 +18,8 @@
 #    memory_percent  => 20,
 #    swap_percent    => [10,4]
 #    memory_size     => 20000,
-#    swap_size       => [30000,60000]
+#    swap_size       => [30000,60000],
+#    dryrun          => false,
 #  }
 #
 # @param pkgname
@@ -78,6 +79,9 @@
 #     SIGKILL once below KILL_PERCENT (default PERCENT/2).
 #     (-S int or -S int,int
 #
+# @param dryrun
+#     if true dry run (do not kill any processes) (--dryrun)
+#
 class earlyoom (
   String[1] $pkgname                  = 'earlyoom',
   Stdlib::Unixpath $configfile        = '/etc/default/earlyoom',
@@ -87,6 +91,7 @@ class earlyoom (
   Boolean $notify_send                = false,
   Boolean $debug                      = false,
   Boolean $priority                   = false,
+  Boolean $dryrun                     = false,
   Optional[String[1]] $prefer         = undef,
   Optional[String[1]] $avoid          = undef,
   Optional[String[1]] $notify_command = undef,

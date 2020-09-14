@@ -76,6 +76,22 @@ describe 'earlyoom', type: 'class' do
           it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 60 --avoid '\^\(foo\|bar\)\$'"$}) }
         end
 
+        context 'with dryrun specified false' do
+          let(:params) do
+            { dryrun: false }
+          end
+
+          it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 60"$}) }
+        end
+
+        context 'with dryrun specified true' do
+          let(:params) do
+            { dryrun: true }
+          end
+
+          it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 60 --dryrun"$}) }
+        end
+
         context 'with memory_percent TERM only specified' do
           let(:params) do
             { memory_percent: 85 }
@@ -153,11 +169,12 @@ describe 'earlyoom', type: 'class' do
               memory_percent: 22,
               swap_percent: [12, 14],
               memory_size: [4, 5],
-              swap_size: 8
+              swap_size: 8,
+              dryrun: true
             }
           end
 
-          it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 123 -i -n -d -p --prefer 'alpha' --avoid 'beta' -N '\/foo\/bar' -m 22 -s 12,14 -M 4,5 -S 8"$}) }
+          it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 123 -i -n -d -p --prefer 'alpha' --avoid 'beta' -N '\/foo\/bar' -m 22 -s 12,14 -M 4,5 -S 8 --dryrun"$}) }
         end
         context 'with pkgname specified' do
           let(:params) do
