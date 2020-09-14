@@ -5,10 +5,9 @@
 class earlyoom::service (
   $service_enable = $earlyoom::service_enable,
 ) {
-
   assert_private()
 
-  service{'earlyoom':
+  service { 'earlyoom':
     ensure => $service_enable,
     enable => $service_enable,
   }
