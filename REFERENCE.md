@@ -49,7 +49,8 @@ class{'earlyoom':
   memory_percent  => 20,
   swap_percent    => [10,4]
   memory_size     => 20000,
-  swap_size       => [30000,60000]
+  swap_size       => [30000,60000],
+  dryrun          => false,
 }
 ```
 
@@ -188,4 +189,12 @@ SIGKILL once below KILL_PERCENT (default PERCENT/2).
 (-S int or -S int,int
 
 Default value: ``undef``
+
+##### `dryrun`
+
+Data type: `Boolean`
+
+if true dry run (do not kill any processes) (--dryrun)
+
+Default value: ``false``
 

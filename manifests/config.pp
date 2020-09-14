@@ -16,6 +16,7 @@ class earlyoom::config (
   $swap_percent    = $earlyoom::swap_percent,
   $memory_size     = $earlyoom::memory_size,
   $swap_size       = $earlyoom::swap_size,
+  $dryrun          = $earlyoom::dryrun,
 ) {
   assert_private()
 
@@ -82,6 +83,11 @@ class earlyoom::config (
     default => '',
   }
 
+  $_dryrun = $dryrun ? {
+    true    => '--dryrun',
+    default => '',
+  }
+
   $_options = [
     $_interval,
     $_ignore_positive,
@@ -95,6 +101,7 @@ class earlyoom::config (
     $_swap_percent,
     $_memory_size,
     $_swap_size,
+    $_dryrun,
   ]
 
   file { $configfile:
