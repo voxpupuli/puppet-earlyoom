@@ -17,7 +17,6 @@ class earlyoom::config (
   $memory_size     = $earlyoom::memory_size,
   $swap_size       = $earlyoom::swap_size,
 ) {
-
   assert_private()
 
   # Build easyoom options. I wish push existed...
@@ -98,11 +97,13 @@ class earlyoom::config (
     $_swap_size,
   ]
 
-  file{$configfile:
-    ensure       => present,
-    content      => epp('earlyoom/default.epp',{
-      'options' => $_options.delete('').join(' ')
-    }),
+  file { $configfile:
+    ensure       => file,
+    content      => epp('earlyoom/default.epp',
+      {
+        'options' => $_options.delete('').join(' ')
+      }
+    ),
     mode         => '0644',
     owner        => root,
     group        => root,

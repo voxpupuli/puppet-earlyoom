@@ -2,7 +2,17 @@ require 'spec_helper_acceptance'
 
 describe 'earlyoom' do
   context 'with earlyoom' do
-    let(:pp) { 'class{"earlyoom": }' }
+    let(:pp) do
+      '
+        if $facts["os"]["family"] == "RedHat" {
+          package{"epel-release":
+            ensure => present,
+            before => Class["earlyoom"]
+          }
+        }
+        contain "earlyoom"
+      '
+    end
 
     it 'configures and work with no errors' do
       apply_manifest(pp, catch_failures: true)
