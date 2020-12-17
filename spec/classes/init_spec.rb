@@ -15,6 +15,8 @@ describe 'earlyoom', type: 'class' do
         it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 60"$}) }
         it { is_expected.to contain_service('earlyoom').with_ensure(true) }
         it { is_expected.to contain_service('earlyoom').with_enable(true) }
+        it { is_expected.to contain_systemd__dropin_file('local_user.conf').with_ensure('absent') }
+        it { is_expected.not_to contain_user('earlyoom') }
         context 'with interval specified' do
           let(:params) do
             { interval: 123 }
@@ -192,6 +194,31 @@ describe 'earlyoom', type: 'class' do
 
           it { is_expected.to contain_service('earlyoom').with_enable(false) }
           it { is_expected.to contain_service('earlyoom').with_ensure(false) }
+        end
+
+        context 'with_local_user false' do
+          let(:params) do
+            { local_user: false }
+          end
+
+          it { is_expected.to contain_systemd__dropin_file('local_user.conf').with_ensure('absent') }
+          it { is_expected.not_to contain_user('earlyoom') }
+        end
+
+        context 'with_local_user true' do
+          let(:params) do
+            { local_user: true }
+          end
+
+          case facts[:os]['family']
+          when 'RedHat'
+            it { is_expected.to contain_systemd__dropin_file('local_user.conf').with_ensure('file') }
+            it { is_expected.to contain_systemd__dropin_file('local_user.conf').with_content(%r{^User=earlyoom$}) }
+            it { is_expected.to contain_user('earlyoom') }
+          else
+            it { is_expected.to contain_systemd__dropin_file('local_user.conf').with_ensure('absent') }
+            it { is_expected.not_to contain_user('earlyoom') }
+          end
         end
       end
     end

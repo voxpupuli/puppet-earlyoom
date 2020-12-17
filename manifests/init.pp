@@ -82,6 +82,14 @@
 # @param dryrun
 #     if true dry run (do not kill any processes) (--dryrun)
 #
+# @param local_user
+#     On the RedHat family of OSes the earlyoom service uses a systemd dynamic user in
+#     its service unit. Setting this to true will create a local system account "earlyoom"
+#     to run earlyoom as instead.
+#     On the Debian family earlyoom runs as root and this parameter is ignored.
+#     Note to transition from `false` to `true` it may be necessary to stop earlyoom
+#     so the dynamic user is not present and the local user can be added.
+#
 class earlyoom (
   String[1] $pkgname                  = 'earlyoom',
   Stdlib::Unixpath $configfile        = '/etc/default/earlyoom',
@@ -92,6 +100,7 @@ class earlyoom (
   Boolean $debug                      = false,
   Boolean $priority                   = false,
   Boolean $dryrun                     = false,
+  Boolean $local_user                 = false,
   Optional[String[1]] $prefer         = undef,
   Optional[String[1]] $avoid          = undef,
   Optional[String[1]] $notify_command = undef,
@@ -99,6 +108,7 @@ class earlyoom (
   Optional[Variant[Integer[0,100],Array[Integer[0,100],2,2]]] $swap_percent   = undef,
   Optional[Variant[Integer[0],Array[Integer[0],2,2]]]         $memory_size    = undef,
   Optional[Variant[Integer[0],Array[Integer[0],2,2]]]         $swap_size      = undef,
+
 ) {
   contain 'earlyoom::install'
   contain 'earlyoom::config'
