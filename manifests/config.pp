@@ -17,6 +17,7 @@ class earlyoom::config (
   $memory_size     = $earlyoom::memory_size,
   $swap_size       = $earlyoom::swap_size,
   $dryrun          = $earlyoom::dryrun,
+  $local_user      = $earlyoom::local_user,
 ) {
   assert_private()
 
@@ -116,4 +117,27 @@ class earlyoom::config (
     group        => root,
     validate_cmd => '/bin/bash -n %',
   }
+
+  if $local_user and $facts['os']['family'] == 'RedHat' {
+    user { 'earlyoom':
+      ensure  => present,
+      shell   => '/sbin/nologin',
+      home    => '/',
+      system  => true,
+      comment => 'earlyoom user',
+      before  => Systemd::Dropin_file['local_user.conf'],
+    }
+
+    $_user_dropin_file = 'file'
+  } else {
+    $_user_dropin_file = 'absent'
+  }
+
+  systemd::dropin_file { 'local_user.conf':
+    ensure  => $_user_dropin_file,
+    unit    => 'earlyoom.service',
+    content => "#Puppet\n[Service]\nUser=earlyoom\n",
+  }
+  # Needed on puppet 5 only
+  Systemd::Dropin_File['local_user.conf'] -> Class['Systemd::Systemctl::Daemon_reload']
 }
