@@ -3,7 +3,7 @@
 # @api private
 #
 class earlyoom::service (
-  $service_enable = $earlyoom::service_enable,
+  $service_enable,
 ) {
   assert_private()
 

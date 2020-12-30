@@ -91,24 +91,23 @@
 #     so the dynamic user is not present and the local user can be added.
 #
 class earlyoom (
-  String[1] $pkgname                  = 'earlyoom',
-  Stdlib::Unixpath $configfile        = '/etc/default/earlyoom',
-  Integer[0] $interval                = 60,
-  Boolean $service_enable             = true,
-  Boolean $ignore_positive            = false,
-  Boolean $notify_send                = false,
-  Boolean $debug                      = false,
-  Boolean $priority                   = false,
-  Boolean $dryrun                     = false,
-  Boolean $local_user                 = false,
-  Optional[String[1]] $prefer         = undef,
-  Optional[String[1]] $avoid          = undef,
-  Optional[String[1]] $notify_command = undef,
-  Optional[Variant[Integer[0,100],Array[Integer[0,100],2,2]]] $memory_percent = undef,
-  Optional[Variant[Integer[0,100],Array[Integer[0,100],2,2]]] $swap_percent   = undef,
-  Optional[Variant[Integer[0],Array[Integer[0],2,2]]]         $memory_size    = undef,
-  Optional[Variant[Integer[0],Array[Integer[0],2,2]]]         $swap_size      = undef,
-
+  String[1] $pkgname,
+  Stdlib::Unixpath $configfile,
+  Integer[0] $interval,
+  Boolean $service_enable,
+  Boolean $ignore_positive,
+  Boolean $notify_send,
+  Boolean $debug,
+  Boolean $priority,
+  Boolean $dryrun,
+  Boolean $local_user,
+  Optional[String[1]] $prefer,
+  Optional[String[1]] $avoid,
+  Optional[String[1]] $notify_command,
+  Optional[Variant[Integer[0,100],Array[Integer[0,100],2,2]]] $memory_percent,
+  Optional[Variant[Integer[0,100],Array[Integer[0,100],2,2]]] $swap_percent,
+  Optional[Variant[Integer[0],Array[Integer[0],2,2]]]         $memory_size,
+  Optional[Variant[Integer[0],Array[Integer[0],2,2]]]         $swap_size,
 ) {
   contain 'earlyoom::install'
   contain 'earlyoom::config'

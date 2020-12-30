@@ -3,7 +3,7 @@
 # @api private
 #
 class earlyoom::install (
-  $pkgname        = $earlyoom::pkgname,
+  $pkgname,
 ) {
   assert_private()
 

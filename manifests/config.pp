@@ -3,21 +3,21 @@
 # @api private
 #
 class earlyoom::config (
-  $configfile      = $earlyoom::configfile,
-  $interval        = $earlyoom::interval,
-  $ignore_positive = $earlyoom::ignore_positive,
-  $notify_send     = $earlyoom::notify_send,
-  $debug           = $earlyoom::debug,
-  $priority        = $earlyoom::priority,
-  $prefer          = $earlyoom::prefer,
-  $avoid           = $earlyoom::avoid,
-  $notify_command  = $earlyoom::notify_command,
-  $memory_percent  = $earlyoom::memory_percent,
-  $swap_percent    = $earlyoom::swap_percent,
-  $memory_size     = $earlyoom::memory_size,
-  $swap_size       = $earlyoom::swap_size,
-  $dryrun          = $earlyoom::dryrun,
-  $local_user      = $earlyoom::local_user,
+  $configfile,
+  $interval,
+  $ignore_positive,
+  $notify_send,
+  $debug,
+  $priority,
+  $prefer,
+  $avoid,
+  $notify_command,
+  $memory_percent,
+  $swap_percent,
+  $memory_size,
+  $swap_size,
+  $dryrun,
+  $local_user,
 ) {
   assert_private()
 
