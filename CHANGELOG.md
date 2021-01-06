@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.0.0](https://github.com/voxpupuli/puppet-earlyoom/tree/v2.0.0) (2021-01-06)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-earlyoom/compare/v1.1.0...v2.0.0)
+
+**Breaking changes:**
+
+- Drop Puppet 5 Support [\#15](https://github.com/voxpupuli/puppet-earlyoom/pull/15) ([traylenator](https://github.com/traylenator))
+
+**Implemented enhancements:**
+
+- Support Puppet7 and Ubuntu 20.04 [\#13](https://github.com/voxpupuli/puppet-earlyoom/pull/13) ([traylenator](https://github.com/traylenator))
+- Support running as local instead of dynamic user [\#12](https://github.com/voxpupuli/puppet-earlyoom/pull/12) ([traylenator](https://github.com/traylenator))
+
 ## [v1.1.0](https://github.com/voxpupuli/puppet-earlyoom/tree/v1.1.0) (2020-09-14)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-earlyoom/compare/v1.0.0...v1.1.0)
