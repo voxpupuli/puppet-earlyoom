@@ -138,6 +138,4 @@ class earlyoom::config (
     unit    => 'earlyoom.service',
     content => "#Puppet\n[Service]\nUser=earlyoom\n",
   }
-  # Needed on puppet 5 only
-  Systemd::Dropin_File['local_user.conf'] -> Class['Systemd::Systemctl::Daemon_reload']
 }
