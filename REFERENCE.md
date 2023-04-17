@@ -18,7 +18,7 @@
 
 ## Classes
 
-### `earlyoom`
+### <a name="earlyoom"></a>`earlyoom`
 
 Installs earlyoom and configures earlyoom
 
@@ -56,9 +56,27 @@ class{'earlyoom':
 
 #### Parameters
 
-The following parameters are available in the `earlyoom` class.
+The following parameters are available in the `earlyoom` class:
 
-##### `pkgname`
+* [`pkgname`](#-earlyoom--pkgname)
+* [`interval`](#-earlyoom--interval)
+* [`configfile`](#-earlyoom--configfile)
+* [`service_enable`](#-earlyoom--service_enable)
+* [`ignore_positive`](#-earlyoom--ignore_positive)
+* [`notify_send`](#-earlyoom--notify_send)
+* [`debug`](#-earlyoom--debug)
+* [`notify_command`](#-earlyoom--notify_command)
+* [`priority`](#-earlyoom--priority)
+* [`avoid`](#-earlyoom--avoid)
+* [`prefer`](#-earlyoom--prefer)
+* [`memory_percent`](#-earlyoom--memory_percent)
+* [`swap_percent`](#-earlyoom--swap_percent)
+* [`memory_size`](#-earlyoom--memory_size)
+* [`swap_size`](#-earlyoom--swap_size)
+* [`dryrun`](#-earlyoom--dryrun)
+* [`local_user`](#-earlyoom--local_user)
+
+##### <a name="-earlyoom--pkgname"></a>`pkgname`
 
 Data type: `String[1]`
 
@@ -66,7 +84,7 @@ Name of package to install
 
 Default value: `'earlyoom'`
 
-##### `interval`
+##### <a name="-earlyoom--interval"></a>`interval`
 
 Data type: `Integer[0]`
 
@@ -74,7 +92,7 @@ Memory report interval in seconds
 
 Default value: `60`
 
-##### `configfile`
+##### <a name="-earlyoom--configfile"></a>`configfile`
 
 Data type: `Stdlib::Unixpath`
 
@@ -82,71 +100,71 @@ Full filename of configuration file
 
 Default value: `'/etc/default/earlyoom'`
 
-##### `service_enable`
+##### <a name="-earlyoom--service_enable"></a>`service_enable`
 
 Data type: `Boolean`
 
 Should the earlyoom service be started.
 
-Default value: ``true``
+Default value: `true`
 
-##### `ignore_positive`
+##### <a name="-earlyoom--ignore_positive"></a>`ignore_positive`
 
 Data type: `Boolean`
 
 If true user-space oom killer should ignore positive oom_score_adj values (-i)
 
-Default value: ``false``
+Default value: `false`
 
-##### `notify_send`
+##### <a name="-earlyoom--notify_send"></a>`notify_send`
 
 Data type: `Boolean`
 
 If true enable notifications using "notify-send" (-n)
 
-Default value: ``false``
+Default value: `false`
 
-##### `debug`
+##### <a name="-earlyoom--debug"></a>`debug`
 
 Data type: `Boolean`
 
 If true enable debug messages (-d)
 
-Default value: ``false``
+Default value: `false`
 
-##### `notify_command`
+##### <a name="-earlyoom--notify_command"></a>`notify_command`
 
 Data type: `Optional[String[1]]`
 
 Specify a command to enable notifications with. (-N cmd)
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `priority`
+##### <a name="-earlyoom--priority"></a>`priority`
 
 Data type: `Boolean`
 
 If true set niceness of earlyoom to -20 and oom_score_adj to -1000 (-p)
 
-Default value: ``false``
+Default value: `false`
 
-##### `avoid`
+##### <a name="-earlyoom--avoid"></a>`avoid`
 
 Data type: `Optional[String[1]]`
 
 avoid killing processes matching REGEX (--avoid REGEX)
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `prefer`
+##### <a name="-earlyoom--prefer"></a>`prefer`
 
 Data type: `Optional[String[1]]`
 
 avoid killing processes matching REGEX (--prefer REGEX)
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `memory_percent`
+##### <a name="-earlyoom--memory_percent"></a>`memory_percent`
 
 Data type: `Optional[Variant[Integer[0,100],Array[Integer[0,100],2,2]]]`
 
@@ -155,9 +173,9 @@ earlyoom sends SIGTERM once below PERCENT, then
 SIGKILL once below KILL_PERCENT (default PERCENT/2).
 (-m int or -m int,int
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `swap_percent`
+##### <a name="-earlyoom--swap_percent"></a>`swap_percent`
 
 Data type: `Optional[Variant[Integer[0,100],Array[Integer[0,100],2,2]]]`
 
@@ -166,9 +184,9 @@ earlyoom sends SIGTERM once below PERCENT, then
 SIGKILL once below KILL_PERCENT (default PERCENT/2).
 (-s int or -s int,int
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `memory_size`
+##### <a name="-earlyoom--memory_size"></a>`memory_size`
 
 Data type: `Optional[Variant[Integer[0],Array[Integer[0],2,2]]]`
 
@@ -177,9 +195,9 @@ earlyoom sends SIGTERM once below PERCENT, then
 SIGKILL once below KILL_PERCENT (default PERCENT/2).
 (-M int or -M int,int
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `swap_size`
+##### <a name="-earlyoom--swap_size"></a>`swap_size`
 
 Data type: `Optional[Variant[Integer[0],Array[Integer[0],2,2]]]`
 
@@ -188,17 +206,17 @@ earlyoom sends SIGTERM once below PERCENT, then
 SIGKILL once below KILL_PERCENT (default PERCENT/2).
 (-S int or -S int,int
 
-Default value: ``undef``
+Default value: `undef`
 
-##### `dryrun`
+##### <a name="-earlyoom--dryrun"></a>`dryrun`
 
 Data type: `Boolean`
 
 if true dry run (do not kill any processes) (--dryrun)
 
-Default value: ``false``
+Default value: `false`
 
-##### `local_user`
+##### <a name="-earlyoom--local_user"></a>`local_user`
 
 Data type: `Boolean`
 
@@ -209,5 +227,5 @@ On the Debian family earlyoom runs as root and this parameter is ignored.
 Note to transition from `false` to `true` it may be necessary to stop earlyoom
 so the dynamic user is not present and the local user can be added.
 
-Default value: ``false``
+Default value: `false`
 
