@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'earlyoom', type: 'class' do
   on_supported_os.each do |os, facts|
@@ -17,6 +19,7 @@ describe 'earlyoom', type: 'class' do
         it { is_expected.to contain_service('earlyoom').with_enable(true) }
         it { is_expected.to contain_systemd__dropin_file('local_user.conf').with_ensure('absent') }
         it { is_expected.not_to contain_user('earlyoom') }
+
         context 'with interval specified' do
           let(:params) do
             { interval: 123 }
@@ -24,6 +27,7 @@ describe 'earlyoom', type: 'class' do
 
           it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 123"$}) }
         end
+
         context 'with ignore_positive specified' do
           let(:params) do
             { ignore_positive: true }
@@ -31,6 +35,7 @@ describe 'earlyoom', type: 'class' do
 
           it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 60 -i"$}) }
         end
+
         context 'with debug specified' do
           let(:params) do
             { debug: true }
@@ -38,6 +43,7 @@ describe 'earlyoom', type: 'class' do
 
           it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 60 -d"$}) }
         end
+
         context 'with priority specified' do
           let(:params) do
             { priority: true }
@@ -157,6 +163,7 @@ describe 'earlyoom', type: 'class' do
 
           it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 60 -S 12,15"$}) }
         end
+
         context 'with every cmdline paramter specified' do
           let(:params) do
             {
@@ -176,8 +183,9 @@ describe 'earlyoom', type: 'class' do
             }
           end
 
-          it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 123 -i -n -d -p --prefer 'alpha' --avoid 'beta' -N '\/foo\/bar' -m 22 -s 12,14 -M 4,5 -S 8 --dryrun"$}) }
+          it { is_expected.to contain_file('/etc/default/earlyoom').with_content(%r{^EARLYOOM_ARGS="-r 123 -i -n -d -p --prefer 'alpha' --avoid 'beta' -N '/foo/bar' -m 22 -s 12,14 -M 4,5 -S 8 --dryrun"$}) }
         end
+
         context 'with pkgname specified' do
           let(:params) do
             { pkgname: 'trump' }
