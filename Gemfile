@@ -30,5 +30,6 @@ gem 'facter', ENV['FACTER_GEM_VERSION'], :require => false, :groups => [:test]
 
 puppetversion = ENV['PUPPET_GEM_VERSION'] || '~> 7.24'
 gem 'puppet', puppetversion, :require => false, :groups => [:test]
+gem 'concurrent-ruby', '< 1.2'
 
 # vim: syntax=ruby
