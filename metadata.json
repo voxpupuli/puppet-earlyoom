@@ -19,7 +19,7 @@
     },
     {
       "name": "puppet/systemd",
-      "version_requirement": ">= 2.0.0 < 6.0.0"
+      "version_requirement": ">= 2.0.0 < 7.0.0"
     }
   ],
   "requirements": [
@@ -50,7 +50,6 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "18.04",
         "20.04"
       ]
     }
