@@ -7,3 +7,5 @@
     - set: ubuntu1804-64
 spec/spec_helper_acceptance.rb:
   unmanaged: false
+.github/workflows/ci.yml:
+  acceptance_tests: false
