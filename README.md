@@ -1,6 +1,6 @@
 # Puppet Module for EarlyOOM
 
-[![Build Status](https://travis-ci.org/voxpupuli/puppet-earlyoom.png?branch=master)](https://travis-ci.org/voxpupuli/puppet-earlyoom)
+![Build Status](https://github.com/voxpupuli/puppet-earlyoom/actions/workflows/ci.yml/badge.svg?branch=master)
 [![Code Coverage](https://coveralls.io/repos/github/voxpupuli/puppet-earlyoom/badge.svg?branch=master)](https://coveralls.io/github/voxpupuli/puppet-earlyoom)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/puppet/earlyoom.svg)](https://forge.puppetlabs.com/puppet/earlyoom)
 [![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/puppet/earlyoom.svg)](https://forge.puppetlabs.com/puppet/earlyoom)
