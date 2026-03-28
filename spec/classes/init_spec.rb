@@ -179,7 +179,7 @@ describe 'earlyoom', type: 'class' do
               swap_percent: [12, 14],
               memory_size: [4, 5],
               swap_size: 8,
-              dryrun: true
+              dryrun: true,
             }
           end
 
