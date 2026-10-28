@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.0.0](https://github.com/voxpupuli/puppet-earlyoom/tree/v2.0.0) (2026-10-28)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-earlyoom/compare/v1.1.0...v2.0.0)
+
+**Breaking changes:**
+
+- Drop puppet, update openvox minimum version to 8.19 [\#49](https://github.com/voxpupuli/puppet-earlyoom/pull/49) ([TheMeier](https://github.com/TheMeier))
+- Drop Ubuntu 18.04 support [\#32](https://github.com/voxpupuli/puppet-earlyoom/pull/32) ([zilchms](https://github.com/zilchms))
+- Drop Puppet 6 support [\#23](https://github.com/voxpupuli/puppet-earlyoom/pull/23) ([bastelfreak](https://github.com/bastelfreak))
+- Drop Puppet 5 Support [\#15](https://github.com/voxpupuli/puppet-earlyoom/pull/15) ([traylenator](https://github.com/traylenator))
+
+**Implemented enhancements:**
+
+- puppet/systemd: Allow 11.x [\#57](https://github.com/voxpupuli/puppet-earlyoom/pull/57) ([bastelfreak](https://github.com/bastelfreak))
+- Update requirements to allow OpenVox 9 [\#56](https://github.com/voxpupuli/puppet-earlyoom/pull/56) ([sebastianrakel](https://github.com/sebastianrakel))
+- metadata.json: Add OpenVox [\#46](https://github.com/voxpupuli/puppet-earlyoom/pull/46) ([jstraw](https://github.com/jstraw))
+- puppet/systemd: allow 8.x [\#43](https://github.com/voxpupuli/puppet-earlyoom/pull/43) ([jay7x](https://github.com/jay7x))
+- puppet/systemd: Allow 7.x [\#37](https://github.com/voxpupuli/puppet-earlyoom/pull/37) ([TheMeier](https://github.com/TheMeier))
+- puppet/systemd: allow 6.x [\#31](https://github.com/voxpupuli/puppet-earlyoom/pull/31) ([zilchms](https://github.com/zilchms))
+- Add Puppet 8 support [\#27](https://github.com/voxpupuli/puppet-earlyoom/pull/27) ([bastelfreak](https://github.com/bastelfreak))
+- puppetlabs/stdlib: Allow 9.x [\#26](https://github.com/voxpupuli/puppet-earlyoom/pull/26) ([bastelfreak](https://github.com/bastelfreak))
+- puppet/systemd: Allow 5.x; puppetlabs/stdlib: Allow 9.x;  Add Puppet 8 Support [\#24](https://github.com/voxpupuli/puppet-earlyoom/pull/24) ([traylenator](https://github.com/traylenator))
+- bump puppet/systemd to \< 5.0.0 [\#22](https://github.com/voxpupuli/puppet-earlyoom/pull/22) ([jhoblitt](https://github.com/jhoblitt))
+- puppetlabs/stdlib: Allow 8.x [\#19](https://github.com/voxpupuli/puppet-earlyoom/pull/19) ([smortex](https://github.com/smortex))
+- Switch from camptocamp/systemd to voxpupli/systemd [\#18](https://github.com/voxpupuli/puppet-earlyoom/pull/18) ([traylenator](https://github.com/traylenator))
+- Support Puppet7 and Ubuntu 20.04 [\#13](https://github.com/voxpupuli/puppet-earlyoom/pull/13) ([traylenator](https://github.com/traylenator))
+- Support running as local instead of dynamic user [\#12](https://github.com/voxpupuli/puppet-earlyoom/pull/12) ([traylenator](https://github.com/traylenator))
+
 ## [v1.1.0](https://github.com/voxpupuli/puppet-earlyoom/tree/v1.1.0) (2020-09-14)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-earlyoom/compare/v1.0.0...v1.1.0)
