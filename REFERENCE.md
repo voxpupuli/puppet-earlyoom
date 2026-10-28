@@ -228,4 +228,3 @@ Note to transition from `false` to `true` it may be necessary to stop earlyoom
 so the dynamic user is not present and the local user can be added.
 
 Default value: `false`
-
