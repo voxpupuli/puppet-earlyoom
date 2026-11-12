@@ -6,7 +6,12 @@ describe 'earlyoom' do
   context 'with earlyoom' do
     let(:pp) do
       '
-        if $facts["os"]["family"] == "RedHat" {
+        if $facts["os"]["name"] == "OracleLinux" {
+          package{"oracle-epel-release-el${facts[os][release][major]}":
+            ensure => present,
+            before => Class["earlyoom"]
+          }
+        } elsif $facts["os"]["family"] == "RedHat" {
           package{"epel-release":
             ensure => present,
             before => Class["earlyoom"]
@@ -34,21 +39,20 @@ describe 'earlyoom' do
       its(:content) { is_expected.not_to match %r{^earlyoom:.*} }
     end
 
-    if fact('os.family') == 'RedHat'
-      describe process('earlyoom') do
-        its(:user) { is_expected.to eq 'earlyoom' }
-      end
-    else
-      describe process('earlyoom') do
-        its(:user) { is_expected.to eq 'root' }
-      end
+    describe process('earlyoom') do
+      its(:user) { is_expected.to eq 'earlyoom' }
     end
   end
 
   context 'with service_enable false' do
     let(:pp) do
       '
-        if $facts["os"]["family"] == "RedHat" {
+        if $facts["os"]["name"] == "OracleLinux" {
+          package{"oracle-epel-release-el${facts[os][release][major]}":
+            ensure => present,
+            before => Class["earlyoom"]
+          }
+        } elsif $facts["os"]["family"] == "RedHat" {
           package{"epel-release":
             ensure => present,
             before => Class["earlyoom"]
@@ -74,7 +78,12 @@ describe 'earlyoom' do
   context 'with earlyoom and local_user true' do
     let(:pp) do
       '
-        if $facts["os"]["family"] == "RedHat" {
+        if $facts["os"]["name"] == "OracleLinux" {
+          package{"oracle-epel-release-el${facts[os][release][major]}":
+            ensure => present,
+            before => Class["earlyoom"]
+          }
+        } elsif $facts["os"]["family"] == "RedHat" {
           package{"epel-release":
             ensure => present,
             before => Class["earlyoom"]
@@ -104,22 +113,14 @@ describe 'earlyoom' do
       describe file('/etc/passwd') do
         its(:content) { is_expected.to match %r{^earlyoom:.*} }
       end
-
-      describe process('earlyoom') do
-        its(:user) { is_expected.to eq 'earlyoom' }
-      end
     else
       describe file('/etc/passwd') do
         its(:content) { is_expected.not_to match %r{^earlyoom:.*} }
       end
+    end
 
-      describe process('earlyoom') do
-        its(:user) { is_expected.to eq 'root' }
-      end
-
-      describe user('earlyoom') do
-        it { is_expected.not_to exist }
-      end
+    describe process('earlyoom') do
+      its(:user) { is_expected.to eq 'earlyoom' }
     end
   end
 end
